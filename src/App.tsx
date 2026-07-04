@@ -1,122 +1,97 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+// TypeScript-Definition für unsere Tabs
+interface Tab {
+  id: string;
+  label: string;
 }
 
-export default App
+export default function App() {
+  // state für den aktuellen aktiven Tab (Standard: "Dashboard")
+  const [activeTab, setActiveTab] = useState<string>("Dashboard");
+
+  // Funktion, die den passenden Inhalt für das Hauptfenster liefert
+  const renderContent = () => {
+    switch (activeTab) {
+      case "Dashboard":
+        return (
+          <>
+            <h2>Dashboard</h2>
+            <div className="grid">
+              <div className="card"><h3>CPU</h3><p>0 %</p></div>
+              <div className="card"><h3>GPU</h3><p>0 %</p></div>
+              <div className="card"><h3>RAM</h3><p>0 GB</p></div>
+              <div className="card"><h3>FPS</h3><p>0</p></div>
+            </div>
+          </>
+        );
+      case "Games":
+        return (
+          <>
+            <h2>🎮 Games Launcher</h2>
+            <p style={{ color: "#a0a5b5", marginTop: "15px" }}>Hier listen wir bald deine installierten Spiele auf.</p>
+          </>
+        );
+      case "Performance":
+        return (
+          <>
+            <h2>📊 Performance Details</h2>
+            <p style={{ color: "#a0a5b5", marginTop: "15px" }}>Detaillierte Graphen für CPU, GPU und RAM Auslastung.</p>
+          </>
+        );
+      case "AI":
+        return (
+          <>
+            <h2>🤖 Nexus AI</h2>
+            <p style={{ color: "#a0a5b5", marginTop: "15px" }}>Das Interface für deinen persönlichen Sprach- und Textassistenten.</p>
+          </>
+        );
+      default:
+        return (
+          <>
+            <h2>{activeTab}</h2>
+            <p style={{ color: "#a0a5b5", marginTop: "15px" }}>Dieser Bereich befindet sich noch im Aufbau...</p>
+          </>
+        );
+    }
+  };
+
+  // Liste aller verfügbaren Tabs
+  const tabs: Tab[] = [
+    { id: "Dashboard", label: "🏠 Dashboard" },
+    { id: "Games", label: "🎮 Games" },
+    { id: "Performance", label: "📊 Performance" },
+    { id: "AI", label: "🤖 AI" },
+    { id: "Music", label: "🎵 Music" },
+    { id: "Notes", label: "📝 Notes" },
+    { id: "Calendar", label: "📅 Calendar" },
+    { id: "Settings", label: "⚙️ Settings" },
+  ];
+
+  return (
+    <div className="app">
+      <aside className="sidebar">
+        <h1 className="logo">NEXUS</h1>
+
+        <nav>
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              // Wenn die ID mit dem State übereinstimmt, zieht dein CSS die Klasse '.active'
+              className={activeTab === tab.id ? "active" : ""}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+      </aside>
+
+      <main className="main">
+        {/* Hier wird der Inhalt dynamisch gerendert */}
+        {renderContent()}
+      </main>
+    </div>
+  );
+}
