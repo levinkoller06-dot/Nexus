@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #F0EEE6; }
+      #root { width: 100%; height: 100%; position: relative; overflow: hidden; background: #F0EEE6;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+      .scene { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      .bg { position: absolute; inset: 0; }
+      .serif { font-family: "EB Garamond", Georgia, serif; }
+      .stack { position: relative; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center; max-width: 1500px; }
+
+      #s1 .bg { background: #F0EEE6; }
+      #s2 .bg { background: #191919; }
+      #s3 .bg { background: #D97757; }
+
+      #logo1 { display: block; }
+      #h1 { font-size: 150px; font-weight: 400; letter-spacing: -0.03em; color: #191919; line-height: 1.05; }
+      #h1 b { font-weight: 700; color: #C6613F; }
+      #k1 { font-size: 40px; font-weight: 400; color: #6b6a63; letter-spacing: 0.02em; }
+
+      #k2 { font-size: 34px; font-weight: 500; color: #D97757; letter-spacing: 0.22em; text-transform: uppercase; }
+      #h2 { font-size: 130px; font-weight: 400; letter-spacing: -0.03em; color: #F0EEE6; line-height: 1.08; }
+      #h2 b { font-weight: 700; color: #D4A27F; }
+      #rule2 { width: 0; height: 5px; background: #D97757; border-radius: 3px; display: block; }
+      #k2b { font-size: 42px; font-weight: 400; color: #b9b6aa; }
+
+      #h3 { font-size: 140px; font-weight: 400; letter-spacing: -0.03em; color: #191919; line-height: 1.1; }
+      .w3 { display: inline-block; }
+      #k3 { font-size: 44px; font-weight: 500; color: #191919; letter-spacing: 0.04em; }
+      #logo3 { display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="15" data-width="1920" data-height="1080">
+
+      <section id="s1" class="scene clip" data-start="0" data-duration="5" data-track-index="0">
+        <div class="bg"></div>
+        <div class="stack">
+          <div id="logo1w"><svg id="logo1" viewBox="0 0 440 440" width="440" height="440"><line x1="248.0" y1="220.0" x2="420.0" y2="220.0" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="244.2" y1="234.0" x2="349.9" y2="295.0" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="234.0" y1="244.2" x2="312.5" y2="380.2" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="220.0" y1="248.0" x2="220.0" y2="340.0" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="206.0" y1="244.2" x2="120.0" y2="393.2" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="195.8" y1="234.0" x2="98.8" y2="290.0" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="192.0" y1="220.0" x2="30.0" y2="220.0" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="195.8" y1="206.0" x2="111.7" y2="157.5" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="206.0" y1="195.8" x2="122.5" y2="51.1" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="220.0" y1="192.0" x2="220.0" y2="75.0" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="234.0" y1="195.8" x2="310.0" y2="64.1" stroke="#D97757" stroke-width="34" stroke-linecap="round"/>
+<line x1="244.2" y1="206.0" x2="332.6" y2="155.0" stroke="#D97757" stroke-width="34" stroke-linecap="round"/></svg></div>
+          <h1 id="h1" class="serif">Hallo. Ich bin <b>Claude.</b></h1>
+          <p id="k1">Ein KI-Assistent zum Denken, Schreiben und Programmieren.</p>
+        </div>
+      </section>
+
+      <section id="s2" class="scene clip" data-start="5" data-duration="5" data-track-index="1">
+        <div id="bg2" class="bg"></div>
+        <div class="stack">
+          <p id="k2">Das Unternehmen dahinter</p>
+          <h2 id="h2" class="serif">Entwickelt von <b>Anthropic.</b></h2>
+          <span id="rule2"></span>
+          <p id="k2b">KI-Sicherheitsunternehmen · gegründet 2021 · San Francisco</p>
+        </div>
+      </section>
+
+      <section id="s3" class="scene clip" data-start="10" data-duration="5" data-track-index="2">
+        <div id="bg3" class="bg"></div>
+        <div class="stack">
+          <div id="logo3w"><svg id="logo3" viewBox="0 0 440 440" width="440" height="440"><line x1="248.0" y1="220.0" x2="420.0" y2="220.0" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="244.2" y1="234.0" x2="349.9" y2="295.0" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="234.0" y1="244.2" x2="312.5" y2="380.2" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="220.0" y1="248.0" x2="220.0" y2="340.0" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="206.0" y1="244.2" x2="120.0" y2="393.2" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="195.8" y1="234.0" x2="98.8" y2="290.0" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="192.0" y1="220.0" x2="30.0" y2="220.0" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="195.8" y1="206.0" x2="111.7" y2="157.5" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="206.0" y1="195.8" x2="122.5" y2="51.1" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="220.0" y1="192.0" x2="220.0" y2="75.0" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="234.0" y1="195.8" x2="310.0" y2="64.1" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/>
+<line x1="244.2" y1="206.0" x2="332.6" y2="155.0" stroke="#F0EEE6" stroke-width="34" stroke-linecap="round"/></svg></div>
+          <h2 id="h3" class="serif"><span class="w3">Hilfreich.</span> <span class="w3">Ehrlich.</span> <span class="w3">Harmlos.</span></h2>
+          <p id="k3">Claude von Anthropic</p>
+        </div>
+      </section>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // Szene 1: 0-5.5
+      tl.fromTo("#logo1", { opacity: 0, scale: 0.3, rotation: -90 }, { opacity: 1, scale: 0.6, rotation: 0, duration: 1.2, ease: "back.out(1.6)" }, 0.2);
+      tl.to("#logo1", { rotation: 45, duration: 4.5, ease: "none" }, 1.4);
+      tl.fromTo("#h1", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 1.0);
+      tl.fromTo("#k1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 2.0);
+      tl.to(["#logo1w", "#h1", "#k1"], { opacity: 0, y: -30, duration: 0.5, ease: "power1.in" }, 4.7);
+
+      // Szene 2: 5-10.5 (Hintergrund blendet ueber Szene 1)
+      tl.fromTo("#bg2", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.inOut" }, 5.0);
+      tl.fromTo("#k2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 5.6);
+      tl.fromTo("#h2", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 6.0);
+      tl.fromTo("#rule2", { width: 0 }, { width: 560, duration: 0.8, ease: "power2.inOut" }, 7.0);
+      tl.fromTo("#k2b", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 7.6);
+      tl.to(["#k2", "#h2", "#rule2", "#k2b"], { opacity: 0, y: -30, duration: 0.5, ease: "power1.in" }, 9.7);
+
+      // Szene 3: 10-15
+      tl.fromTo("#bg3", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.inOut" }, 10.0);
+      tl.fromTo("#logo3", { opacity: 0, scale: 0.3, rotation: -90 }, { opacity: 1, scale: 0.4, rotation: 0, duration: 1.0, ease: "back.out(1.6)" }, 10.4);
+      tl.fromTo(".w3", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.45 }, 10.9);
+      tl.fromTo("#k3", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 12.6);
+      tl.to("#logo3", { rotation: 30, duration: 4.5, ease: "none" }, 10.5);
+      tl.to(["#logo3w", "#h3", "#k3"], { opacity: 0, duration: 0.6, ease: "power1.in" }, 14.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
