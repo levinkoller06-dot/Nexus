@@ -1,0 +1,148 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "ABeeZee",
+      "fontSize": "36px",
+      "fontWeight": "400",
+      "lineHeight": "37.8px",
+      "letterSpacing": "normal",
+      "color": "#77C8D2",
+      "sampleText": "Willkommen bei Bloom"
+    },
+    {
+      "role": "heading",
+      "fontFamily": "ABeeZee",
+      "fontSize": "28px",
+      "fontWeight": "400",
+      "lineHeight": "35px",
+      "letterSpacing": "normal",
+      "color": "#77C8D2",
+      "sampleText": "Über mich"
+    },
+    {
+      "role": "body",
+      "fontFamily": "ABeeZee",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "#828282",
+      "sampleText": "Jetzt Termin vereinbaren (078 238 44 79) Termin anfragen"
+    },
+    {
+      "role": "link",
+      "fontFamily": "Julius Sans One",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "#77C8D2",
+      "sampleText": "Home"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      1,
+      5,
+      6,
+      8,
+      10,
+      12,
+      15,
+      16,
+      20,
+      25
+    ],
+    "baseUnit": 4
+  },
+  "radius": [
+    "8px",
+    "12px"
+  ],
+  "shadows": [
+    {
+      "value": "rgba(0, 0, 0, 0.4) 0px 0px 0px 2000px inset",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "button",
+      "background": "#E6E7F0",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "12px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "10px",
+      "fontWeight": "400",
+      "height": "24px"
+    },
+    {
+      "label": "button",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "1px 6px",
+      "borderRadius": "0px",
+      "border": "",
+      "boxShadow": "none",
+      "fontSize": "10px",
+      "fontWeight": "400",
+      "height": "48px"
+    },
+    {
+      "label": "Alle akzeptieren",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#696C76",
+      "padding": "12px",
+      "borderRadius": "8px",
+      "border": "2px solid rgb(202, 206, 219)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "height": "46px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "10px",
+      "fontWeight": "400",
+      "height": "1815.17px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "transparent",
+    "backgroundImage": "",
+    "backdropFilter": "",
+    "color": "#000000",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "border": "0px none rgb(0, 0, 0)",
+    "boxShadow": "none",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "height": "1815.17px"
+  },
+  "chips": [],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [],
+  "glass": []
+}
