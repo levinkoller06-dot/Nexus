@@ -114,12 +114,12 @@ scene(D(15),D(17),LIGHT,
  f'tl.fromTo("#f8",{{opacity:0}},{{opacity:1,duration:.5}},{Bt(66)});')
 # S9 Farben
 cols=[('polar','Polarweiss'),('mitternacht','Mitternacht'),('gletscher','Gletscherblau'),('sand','Sandstein'),('salbei','Salbei')]
-ph9=''.join(f'<div class="stage">{phone("ph9_"+str(i),210,f)}</div>' for i,(f,n) in enumerate(cols))
+ph9=''.join(f'<div class="stage" id="st9_{i}">{phone("ph9_"+str(i),210,f)}</div>' for i,(f,n) in enumerate(cols))
 nm9=''.join(f'<p class="cn" id="cn{i}" style="left:{230+i*300}px">{n}</p>' for i,(f,n) in enumerate(cols))
 scene(D(17),D(21),LIGHT,
  f'<p class="kick" id="k9">Fünf neue Farben.</p>{ph9}{nm9}',
  'tl.fromTo("#k9",{opacity:0,y:20},{opacity:1,y:0,duration:.6,ease:"power3.out"},S+.05);'
- + ''.join(f'gsap.set("#ph9_{i}",{{x:{290+i*300},y:300,rotationY:180}});tl.fromTo("#ph9_{i}",{{y:620,opacity:0,rotationY:150}},{{y:300,opacity:1,rotationY:200,duration:.8,ease:"expo.out"}},{Bt(68+i*2)});tl.fromTo("#cn{i}",{{opacity:0}},{{opacity:1,duration:.4}},{Bt(68+i*2)+0.25});' for i in range(5))
+ + ''.join(f'gsap.set("#ph9_{i}",{{x:{290+i*300},y:300,rotationY:180}});tl.fromTo("#st9_{i}",{{opacity:0}},{{opacity:1,duration:.35,ease:"power1.out"}},{Bt(68+i*2)});tl.fromTo("#ph9_{i}",{{y:620,rotationY:150}},{{y:300,rotationY:200,duration:.8,ease:"expo.out"}},{Bt(68+i*2)});tl.fromTo("#cn{i}",{{opacity:0}},{{opacity:1,duration:.4}},{Bt(68+i*2)+0.25});' for i in range(5))
  + ''.join(f'tl.to("#ph9_{i}",{{rotationY:160,duration:3.0,ease:"sine.inOut"}},{Bt(78)});' for i in range(5)))
 # S10 Kinetic
 words=['Leichter.','Heller.','Schneller.','Smarter.']
@@ -169,8 +169,8 @@ scene(D(29),D(33),DARK,
  + 'tl.fromTo(".s1",{x:-1400},{x:2200,duration:.6,ease:"power2.in"},S+2.0);tl.fromTo(".s2",{x:2200},{x:-1400,duration:.6,ease:"power2.in"},S+6.0);')
 # S15 End
 scene(D(33),TOTAL,LIGHT,
- f'<div class="stage">{phone("ph15",300,"mitternacht",LOCK)}</div><div class="end" id="e15"><h1 class="hero dk2">iPhone {grad20("g15",170)}</h1><p class="when">Herbst 2027.</p></div><p class="disc" id="d15">Fan-Konzept · Kein offizielles Apple-Produkt</p>',
- 'gsap.set("#ph15",{x:420,y:200,rotationY:-16,rotationX:3});tl.fromTo("#ph15",{rotationY:-40,opacity:0},{rotationY:-16,opacity:1,duration:1.4,ease:"expo.out"},S);'
+ f'<div class="stage" id="st15">{phone("ph15",300,"mitternacht",LOCK)}</div><div class="end" id="e15"><h1 class="hero dk2">iPhone {grad20("g15",170)}</h1><p class="when">Herbst 2027.</p></div><p class="disc" id="d15">Fan-Konzept · Kein offizielles Apple-Produkt</p>',
+ 'gsap.set("#ph15",{x:420,y:200,rotationY:-16,rotationX:3});tl.fromTo("#st15",{opacity:0},{opacity:1,duration:.6,ease:"power1.out"},S);tl.fromTo("#ph15",{rotationY:-40},{rotationY:-16,duration:1.4,ease:"expo.out"},S);'
  'tl.fromTo("#e15 .hero",{opacity:0,y:40},{opacity:1,y:0,duration:.8,ease:"expo.out"},S+.25);tl.fromTo("#e15 .when",{opacity:0},{opacity:1,duration:.6},S+1.1);'
  'tl.fromTo("#d15",{opacity:0},{opacity:1,duration:.6},S+1.8);')
 css=PHONE_CSS+f'''
