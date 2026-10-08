@@ -1,6 +1,8 @@
 # Erzeugt einen eigenen, lizenzfreien Beat (120 BPM, 58 s) - keine fremde Musik.
 import numpy as np, wave, sys
-SR=44100; DUR=58; BPM=120; beat=60/BPM
+import json, re, os
+TL=json.loads(re.search(r'const TL = (\{.*\});', open('timeline.js',encoding='utf-8').read(), re.S).group(1))
+SR=44100; DUR=TL['duration']; BPM=120; beat=60/BPM
 n=SR*DUR; t=np.arange(n)/SR; out=np.zeros(n)
 def add(start,sig):
     i=int(start*SR); j=min(n,i+len(sig)); out[i:j]+=sig[:j-i]
@@ -28,8 +30,23 @@ for bar in range(DUR//2):
     pt=np.arange(int(2*SR))/SR
     pad=sum(np.sin(2*np.pi*f*m*pt) for m in (4,5,6))*0.04*np.minimum(1,pt*4)*np.minimum(1,(2-pt)*4)
     add(s,pad)
-fade=np.minimum(1,(DUR-t)/2.5); out*=fade
-out/=np.max(np.abs(out))*1.15
+# Sprecher: an den Cue-Zeiten platzieren (mit Resampling auf 44,1 kHz)
+voice=np.zeros(n)
+for k,start in TL['cues'].items():
+    f=f'out/voice/{k}.wav'
+    if not os.path.exists(f): continue
+    with wave.open(f) as w:
+        sr=w.getframerate(); x=np.frombuffer(w.readframes(w.getnframes()),dtype=np.int16).astype(float)/32768
+    x=np.interp(np.arange(int(len(x)*SR/sr))/(SR/sr), np.arange(len(x)), x)
+    i=int(start*SR); j=min(n,i+len(x)); voice[i:j]+=x[:j-i]
+# Musik leiser, sobald gesprochen wird (Ducking)
+env=np.convolve(np.abs(voice),np.ones(int(.25*SR))/int(.25*SR),mode='same'); env=np.clip(env*12,0,1)
+music=out/np.max(np.abs(out))
+music*= (0.55 - 0.33*env) if voice.any() else 1
+voice=voice/np.max(np.abs(voice))*0.95 if voice.any() else voice
+out=music+voice
+out*=np.minimum(1,(DUR-t)/2.5)
+out/=np.max(np.abs(out))*1.05
 data=(out*32767).astype(np.int16)
 with wave.open(sys.argv[1],'wb') as w:
     w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(data.tobytes())
