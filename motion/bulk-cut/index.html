@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Bulk &amp; Cut erklärt</title>
+<style>
+  :root { --bg:#0f1117; --card:#151924; --line:#242a3a; --txt:#fff; --mut:#a0a5b5;
+          --vio:#7c5cff; --bulk:#2ee6a6; --cut:#ff7a4a; }
+  * { box-sizing:border-box; margin:0; }
+  html,body { width:1920px; height:1080px; overflow:hidden; background:var(--bg);
+              font-family:'Inter','Segoe UI',sans-serif; color:var(--txt); }
+  #stage { position:relative; width:1920px; height:1080px; overflow:hidden; }
+  .scene { position:absolute; inset:0; opacity:0; }
+  .bg { position:absolute; inset:-60px; background-size:cover; background-position:center; opacity:.6; filter:blur(8px) saturate(1.2); }
+  .shade { position:absolute; inset:0; background:radial-gradient(circle at 30% 40%, transparent, #0f1117 85%); }
+  .abs { position:absolute; }
+  h1 { font-size:230px; font-weight:900; letter-spacing:-6px; line-height:1; }
+  h2 { font-size:92px; font-weight:800; letter-spacing:-2px; line-height:1.05; }
+  .sub { font-size:44px; color:var(--mut); font-weight:500; }
+  .pill { font-size:34px; font-weight:700; padding:14px 30px; border-radius:60px; border:2px solid; }
+  .bullet { font-size:46px; font-weight:600; line-height:1.25; padding-left:44px; position:absolute; width:900px; }
+  .bullet::before { content:""; position:absolute; left:0; top:16px; width:20px; height:20px; border-radius:50%; background:currentColor; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:28px; }
+  .small { font-size:26px; color:var(--mut); }
+  svg text { font-family:'Inter',sans-serif; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 1 HOOK -->
+  <section class="scene" id="s1">
+    <div class="bg" id="bg1" style="background-image:url(assets/gym.png)"></div><div class="shade"></div>
+    <h1 class="abs" id="s1a" style="left:150px;top:210px;color:var(--bulk)">BULK</h1>
+    <h1 class="abs" id="s1b" style="left:150px;top:430px;color:var(--cut)">CUT</h1>
+    <h1 class="abs" id="s1q" style="left:820px;top:430px;color:var(--vio)">?</h1>
+    <div class="abs sub" id="s1c" style="left:156px;top:720px">So funktioniert Muskelaufbau wirklich.</div>
+  </section>
+
+  <!-- 2 ENERGIEBILANZ -->
+  <section class="scene" id="s2">
+    <h2 class="abs" id="s2h" style="left:120px;top:90px">Alles dreht sich um die <span style="color:var(--vio)">Energiebilanz</span></h2>
+    <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <polygon points="960,569 890,720 1030,720" fill="#242a3a"/>
+      <g id="beam">
+        <rect x="360" y="0" width="1200" height="18" rx="9" fill="#a0a5b5"/>
+        <g id="panL"><line x1="400" y1="18" x2="400" y2="150" stroke="#a0a5b5" stroke-width="4"/>
+          <rect x="260" y="150" width="280" height="22" rx="11" fill="#2ee6a6"/>
+          <text x="400" y="225" fill="#2ee6a6" font-size="46" font-weight="800" text-anchor="middle">Kalorien rein</text></g>
+        <g id="panR"><line x1="1520" y1="18" x2="1520" y2="150" stroke="#a0a5b5" stroke-width="4"/>
+          <rect x="1380" y="150" width="280" height="22" rx="11" fill="#ff7a4a"/>
+          <text x="1520" y="225" fill="#ff7a4a" font-size="46" font-weight="800" text-anchor="middle">Kalorien raus</text></g>
+      </g>
+    </svg>
+    <div class="abs" id="s2lbl" style="left:0;width:1920px;top:210px;text-align:center;font-size:72px;font-weight:900"></div>
+    <div class="abs sub" id="s2sub" style="left:0;width:1920px;top:310px;text-align:center"></div>
+  </section>
+
+  <!-- 3 BULK -->
+  <section class="scene" id="s3">
+    <div class="abs" id="s3t" style="left:120px;top:80px"><h1 style="color:var(--bulk);font-size:150px">BULK</h1></div>
+    <div class="abs sub" style="left:128px;top:250px;font-size:38px;width:940px" id="s3st">Aufbauphase: mehr essen als du verbrauchst</div>
+    <div class="bullet" id="s3b1" style="left:120px;top:370px;color:#fff"><span style="color:var(--bulk)">Moderater Überschuss:</span> ca. +200–500 kcal pro Tag</div>
+    <div class="bullet" id="s3b2" style="left:120px;top:520px;color:#fff"><span style="color:var(--bulk)">Tempo:</span> ca. 0,25–0,5 % Körpergewicht pro Woche</div>
+    <div class="bullet" id="s3b3" style="left:120px;top:670px;color:#fff"><span style="color:var(--bulk)">Reiz:</span> Krafttraining mit steigender Last</div>
+    <div class="bullet" id="s3b4" style="left:120px;top:820px;color:#fff"><span style="color:var(--bulk)">Mehr ≠ besser:</span> riesiger Überschuss = vor allem mehr Fett</div>
+    <div class="abs card" style="left:1100px;top:170px;width:700px;height:760px">
+      <div class="abs" style="left:40px;top:28px;font-size:34px;font-weight:700">Gewichtszunahme (schematisch)</div>
+      <svg width="700" height="760" viewBox="0 0 700 760" class="abs" style="left:0;top:0">
+        <line x1="60" y1="640" x2="640" y2="640" stroke="#242a3a" stroke-width="3"/>
+        <rect id="m1" x="130" y="640" width="150" height="0" fill="#2ee6a6"/>
+        <rect id="f1" x="130" y="640" width="150" height="0" fill="#7c5cff"/>
+        <rect id="m2" x="420" y="640" width="150" height="0" fill="#2ee6a6"/>
+        <rect id="f2" x="420" y="640" width="150" height="0" fill="#7c5cff"/>
+        <text x="205" y="690" fill="#fff" font-size="30" font-weight="700" text-anchor="middle">moderat</text>
+        <text x="495" y="690" fill="#fff" font-size="30" font-weight="700" text-anchor="middle">zu viel</text>
+        <rect x="150" y="715" width="22" height="22" fill="#2ee6a6"/><text x="182" y="734" fill="#a0a5b5" font-size="26">Muskel</text>
+        <rect x="320" y="715" width="22" height="22" fill="#7c5cff"/><text x="352" y="734" fill="#a0a5b5" font-size="26">Fett</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 4 CUT -->
+  <section class="scene" id="s4">
+    <div class="abs" id="s4t" style="left:120px;top:80px"><h1 style="color:var(--cut);font-size:150px">CUT</h1></div>
+    <div class="abs sub" style="left:128px;top:250px;font-size:38px;width:940px">Definitionsphase: Fett runter, Muskeln behalten</div>
+    <div class="bullet" id="s4b1" style="left:120px;top:370px;color:#fff"><span style="color:var(--cut)">Moderates Defizit:</span> ca. 10–25 % unter Bedarf</div>
+    <div class="bullet" id="s4b2" style="left:120px;top:520px;color:#fff"><span style="color:var(--cut)">Tempo:</span> ca. 0,5–1 % Körpergewicht pro Woche</div>
+    <div class="bullet" id="s4b3" style="left:120px;top:670px;color:#fff"><span style="color:var(--cut)">Schutz:</span> viel Protein + weiter schwer trainieren</div>
+    <div class="bullet" id="s4b4" style="left:120px;top:820px;color:#fff"><span style="color:var(--cut)">Zu schnell?</span> Muskelverlust, Hunger, Leistungsabfall</div>
+    <div class="abs card" style="left:1100px;top:170px;width:700px;height:760px">
+      <div class="abs" style="left:40px;top:28px;font-size:34px;font-weight:700">Verlauf im Cut (schematisch)</div>
+      <svg width="700" height="760" viewBox="0 0 700 760" class="abs" style="left:0;top:0">
+        <line x1="60" y1="640" x2="640" y2="640" stroke="#242a3a" stroke-width="3"/>
+        <line x1="60" y1="120" x2="60" y2="640" stroke="#242a3a" stroke-width="3"/>
+        <path id="cutFat" d="" fill="none" stroke="#ff7a4a" stroke-width="10" stroke-linecap="round"/>
+        <path id="cutMus" d="" fill="none" stroke="#2ee6a6" stroke-width="10" stroke-linecap="round"/>
+        <rect x="150" y="690" width="22" height="22" fill="#ff7a4a"/><text x="182" y="709" fill="#a0a5b5" font-size="26">Körperfett</text>
+        <rect x="360" y="690" width="22" height="22" fill="#2ee6a6"/><text x="392" y="709" fill="#a0a5b5" font-size="26">Muskelmasse</text>
+        <text x="350" y="672" fill="#a0a5b5" font-size="24" text-anchor="middle">Zeit →</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 5 PROTEIN -->
+  <section class="scene" id="s5">
+    <div class="bg" style="background-image:url(assets/food.png);opacity:.3"></div><div class="shade"></div>
+    <h2 class="abs" id="s5h" style="left:120px;top:100px">In beiden Phasen: <span style="color:var(--vio)">Protein</span></h2>
+    <div class="abs" id="s5n" style="left:120px;top:300px;font-size:260px;font-weight:900;letter-spacing:-2px;color:var(--vio)">1,6</div>
+    <div class="abs sub" id="s5u" style="left:130px;top:600px;font-size:60px">g pro kg Körpergewicht / Tag</div>
+    <div class="abs card" id="s5c" style="left:120px;top:730px;width:1000px;height:200px;padding:36px 44px">
+      <div style="font-size:44px;font-weight:700">Beispiel 80 kg: <span style="color:var(--vio)">ca. 130–175 g Protein</span></div>
+      <div class="small" style="margin-top:14px;font-size:30px">Im Cut eher am oberen Ende (oder darüber), dazu Krafttraining.</div>
+    </div>
+  </section>
+
+  <!-- 6 ZYKLUS -->
+  <section class="scene" id="s6">
+    <h2 class="abs" id="s6h" style="left:120px;top:90px">Der <span style="color:var(--vio)">Zyklus</span>: Aufbauen, dann freilegen</h2>
+    <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <rect id="band1" x="160" y="330" width="0" height="440" rx="20" fill="#2ee6a6" opacity=".12"/>
+      <rect id="band2" x="1010" y="330" width="0" height="440" rx="20" fill="#ff7a4a" opacity=".12"/>
+      <path id="wave" d="" fill="none" stroke="#7c5cff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <text id="l1" x="585" y="400" fill="#2ee6a6" font-size="64" font-weight="900" text-anchor="middle" opacity="0">BULK</text>
+      <text id="l1b" x="585" y="810" fill="#a0a5b5" font-size="34" text-anchor="middle" opacity="0">mehrere Monate</text>
+      <text id="l2" x="1305" y="400" fill="#ff7a4a" font-size="64" font-weight="900" text-anchor="middle" opacity="0">CUT</text>
+      <text id="l2b" x="1305" y="810" fill="#a0a5b5" font-size="34" text-anchor="middle" opacity="0">einige Wochen bis Monate</text>
+    </svg>
+    <div class="abs card" id="s6c" style="left:120px;top:880px;width:1680px;height:130px;padding:30px 44px;font-size:36px;font-weight:600">
+      <span style="color:var(--vio)">Einsteiger:</span> Muskelaufbau und Fettverlust gleichzeitig (Rekomposition) kann klappen.
+    </div>
+  </section>
+
+  <!-- 7 OUTRO -->
+  <section class="scene" id="s7">
+    <div class="bg" style="background-image:url(assets/gym.png);opacity:.25"></div><div class="shade"></div>
+    <div class="abs" id="s7a" style="left:140px;top:170px;font-size:110px;font-weight:900"><span style="color:var(--bulk)">Bulk</span> = aufbauen.</div>
+    <div class="abs" id="s7b" style="left:140px;top:330px;font-size:110px;font-weight:900"><span style="color:var(--cut)">Cut</span> = freilegen.</div>
+    <div class="abs" id="s7c" style="left:140px;top:520px;font-size:56px;font-weight:700;color:var(--vio)">Training + Protein + Geduld.</div>
+    <div class="abs small" id="s7d" style="left:140px;top:820px;width:1500px;line-height:1.5">Richtwerte, keine Ernährungs- oder Medizinberatung. Bei Vorerkrankungen vorher ärztlich abklären.<br>Basierend auf u. a. Helms et al. 2014 · Morton et al. 2018 · Slater et al. 2019</div>
+  </section>
+
+  <div class="abs" id="prog" style="left:0;bottom:0;height:8px;width:0;background:var(--vio)"></div>
+</div>
+
+<script>
+const FPS = 30, DURATION = 58;
+const clamp = (x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const prog = (t,a,b)=>clamp((t-a)/(b-a));
+const eo3 = x=>1-Math.pow(1-x,3);
+const eob = x=>{const c=1.70158,d=c+1;return 1+d*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const $ = id=>document.getElementById(id);
+const BEAT = 0.5; // 120 BPM
+const snap = t=>Math.floor(t/BEAT)*BEAT; // Einsätze auf dem Schlag
+
+const scenes = [[0,4,'s1'],[4,12,'s2'],[12,22,'s3'],[22,32,'s4'],[32,40,'s5'],[40,50,'s6'],[50,58,'s7']];
+
+function pop(el,t,start,{dx=0,dy=40}={}){
+  const p = eo3(prog(t,start,start+0.5));
+  el.style.opacity = p;
+  el.style.transform = `translate(${(1-p)*dx}px,${(1-p)*dy}px)`;
+}
+function bulletsIn(prefix,n,lt,first=1.5,gap=1.5){
+  for(let i=0;i<n;i++) pop($(prefix+(i+1)),lt,first+i*gap,{dx:-80,dy:0});
+}
+
+function render(t){
+  $('prog').style.width = (t/DURATION*100)+'%';
+  for(const [a,b,id] of scenes){
+    const el=$(id), lt=t-a;
+    const fi=prog(lt,0,.35), fo=1-prog(lt,b-a-.35,b-a);
+    el.style.opacity = (t>=a&&t<b) ? Math.min(fi,fo) : 0;
+    el.style.display = (t>=a-.01&&t<b+.01) ? 'block':'none';
+  }
+  let lt;
+  // S1
+  lt=t; if(t<4){
+    $('bg1').style.transform=`scale(${1+lt*0.03})`;
+    $('s1a').style.transform=`translateX(${(1-eob(prog(lt,0.0,0.7)))*-900}px)`;
+    $('s1b').style.transform=`translateX(${(1-eob(prog(lt,0.5,1.2)))*900}px)`;
+    $('s1q').style.opacity=prog(lt,1.5,1.6); const qp=eob(prog(lt,1.5,2.1)); $('s1q').style.transform=`scale(${qp}) rotate(${(1-qp)*-40}deg)`;
+    pop($('s1c'),lt,2,{dy:30});
+  }
+  // S2 Waage
+  lt=t-4; if(t>=4&&t<12){
+    pop($('s2h'),lt,0.2,{dy:-30});
+    // 0-2 Ruhe, 2-4 Bulk (kippt links runter), 4-6 Erhalt, 6-8 Cut
+    const ang = lt<2?0: lt<4? -9*eob(prog(lt,2,2.6)) : lt<6? lerp(-9,0,eo3(prog(lt,4,4.6))) : lerp(0,9,eob(prog(lt,6,6.6)));
+    const cx=960; $('beam').setAttribute('transform',`translate(${cx-960},${ 560}) rotate(${ang} 960 9)`);
+    const pans=['panL','panR']; // Gehänge bleiben senkrecht
+    const rad=ang*Math.PI/180, dy=(x)=>Math.sin(rad)*(x-960);
+    $('panL').setAttribute('transform',`translate(0,0) rotate(${-ang} 400 18)`);
+    $('panR').setAttribute('transform',`translate(0,0) rotate(${-ang} 1520 18)`);
+    const lbl=$('s2lbl'), sub=$('s2sub');
+    if(lt<2){lbl.textContent='';sub.textContent='';}
+    else if(lt<4){lbl.textContent='Überschuss'; lbl.style.color='var(--bulk)'; sub.textContent='mehr rein als raus  →  BULK';}
+    else if(lt<6){lbl.textContent='Gleichgewicht'; lbl.style.color='#fff'; sub.textContent='gleich viel  →  Gewicht halten';}
+    else {lbl.textContent='Defizit'; lbl.style.color='var(--cut)'; sub.textContent='weniger rein als raus  →  CUT';}
+    const sp=prog(lt%2,0,.25); lbl.style.transform=`scale(${1+(1-eo3(sp))*0.15})`;
+  }
+  // S3 Bulk
+  lt=t-12; if(t>=12&&t<22){
+    pop($('s3t'),lt,0.1,{dx:-100,dy:0}); pop($('s3st'),lt,0.6,{dy:20});
+    bulletsIn('s3b',4,lt,2,2);
+    const g=eo3(prog(lt,3,5)), g2=eo3(prog(lt,5,7));
+    const H=480; // Skala
+    const m1=H*0.30*g, f1=H*0.12*g, m2=H*0.30*g2, f2=H*0.52*g2;
+    $('m1').setAttribute('y',640-m1); $('m1').setAttribute('height',m1);
+    $('f1').setAttribute('y',640-m1-f1); $('f1').setAttribute('height',f1);
+    $('m2').setAttribute('y',640-m2); $('m2').setAttribute('height',m2);
+    $('f2').setAttribute('y',640-m2-f2); $('f2').setAttribute('height',f2);
+  }
+  // S4 Cut
+  lt=t-22; if(t>=22&&t<32){
+    pop($('s4t'),lt,0.1,{dx:-100,dy:0});
+    bulletsIn('s4b',4,lt,2,2);
+    const p=eo3(prog(lt,2,8)), N=40; let dF='',dM='';
+    for(let i=0;i<=N*p;i++){ const x=lerp(80,620,i/N), u=i/N;
+      const yF=lerp(240,520,eo3(u)*0.9+u*0.1), yM=360+Math.sin(u*9)*5+u*6;
+      dF+=(i?'L':'M')+x+' '+yF+' '; dM+=(i?'L':'M')+x+' '+yM+' '; }
+    $('cutFat').setAttribute('d',dF); $('cutMus').setAttribute('d',dM);
+  }
+  // S5 Protein
+  lt=t-32; if(t>=32&&t<40){
+    pop($('s5h'),lt,0.1,{dy:-30});
+    const n = lt<2? 1.6 : lerp(1.6,2.2,eo3(prog(lt,2,4)));
+    $('s5n').textContent = (lt<2?'1,6': lt<4 ? n.toFixed(1).replace('.',',') : '1,6–2,2');
+    $('s5n').style.fontSize = lt>=4 ? '200px':'260px';
+    pop($('s5u'),lt,0.6,{dy:20}); pop($('s5c'),lt,4.5,{dy:40});
+  }
+  // S6 Zyklus
+  lt=t-40; if(t>=40&&t<50){
+    pop($('s6h'),lt,0.1,{dy:-30});
+    $('band1').setAttribute('width',830*eo3(prog(lt,0.5,2)));
+    $('band2').setAttribute('x',1010); $('band2').setAttribute('width',590*eo3(prog(lt,4,5.5)));
+    const pts=[[160,700],[400,640],[700,520],[1000,430],[1150,500],[1350,590],[1600,640]];
+    const total=prog(lt,1,7.5); let d='';
+    const segs=pts.length-1, f=total*segs;
+    for(let i=0;i<=Math.floor(f)&&i<pts.length;i++){ d+=(i?'L':'M')+pts[i][0]+' '+pts[i][1]+' '; }
+    const i=Math.min(Math.floor(f),segs-1), r=f-i;
+    if(total<1&&i<segs){ d+='L'+lerp(pts[i][0],pts[i+1][0],r)+' '+lerp(pts[i][1],pts[i+1][1],r); }
+    $('wave').setAttribute('d',d);
+    const so=(id,s)=>$(id).setAttribute('opacity',prog(lt,s,s+0.5));
+    so('l1',1.5);so('l1b',2.5);so('l2',4.5);so('l2b',5.5);
+    pop($('s6c'),lt,7.5,{dy:40});
+  }
+  // S7 Outro
+  lt=t-50; if(t>=50){
+    pop($('s7a'),lt,0.4,{dx:-100,dy:0}); pop($('s7b'),lt,2,{dx:-100,dy:0});
+    pop($('s7c'),lt,3.5,{dy:30}); pop($('s7d'),lt,4,{dy:20});
+  }
+}
+window.render = render; window.FPS=FPS; window.DURATION=DURATION;
+render(0);
+if(!navigator.webdriver){ const t0=performance.now(); (function loop(){ const t=((performance.now()-t0)/1000)%DURATION; render(t); requestAnimationFrame(loop);})(); }
+</script>
+</body>
+</html>
