@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1920, height=1080"/>
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"BSC";font-weight:300;src:url("assets/fonts/barlow-semi-condensed-latin-300-normal.woff2") format("woff2")}
+@font-face{font-family:"BSC";font-weight:400;src:url("assets/fonts/barlow-semi-condensed-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"BSC";font-weight:500;src:url("assets/fonts/barlow-semi-condensed-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"BSC";font-weight:600;src:url("assets/fonts/barlow-semi-condensed-latin-600-normal.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
+#root{width:100%;height:100%;position:relative;overflow:hidden;background:#000;font-family:"BSC",sans-serif;color:#fff}
+.scene{position:absolute;inset:0;overflow:hidden}
+.sw{position:absolute;inset:0}
+.fade{position:absolute;inset:0;background:#000;opacity:0;display:block}
+.F{font-family:"BSC",sans-serif;font-weight:400;letter-spacing:-0.01em;line-height:1.02}
+.vzw{position:absolute;inset:0;overflow:hidden}
+.vid{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover;display:block}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 40%,rgba(0,0,0,.65) 100%);display:block}
+.redglow{position:absolute;left:460px;top:40px;width:1000px;height:1000px;border-radius:50%;background:radial-gradient(circle,rgba(200,20,10,.42),rgba(200,20,10,0) 65%);display:block}
+.t1{position:absolute;left:0;top:0;width:1920px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding-left:160px}
+.mask{overflow:hidden;padding:0 20px 14px 0}
+.hero{font-size:190px;font-weight:400;color:#fff}
+.card{position:absolute;inset:0;background:radial-gradient(ellipse at 55% 75%,#FFFFFF 0%,#EEEFF2 55%,#E2E4E9 100%)}
+.cnt{position:absolute;right:120px;top:110px;font-size:34px;color:#6B6D70;letter-spacing:.08em}
+.mname{position:absolute;left:120px;top:90px;font-size:200px;color:#0E0E12;font-weight:400}
+.mdesc{position:absolute;left:126px;top:320px;font-size:46px;color:#4C4E52}
+.carwrap{position:absolute;left:250px;top:400px;width:1500px;height:520px;display:flex;align-items:flex-end;justify-content:center}
+.car{display:block;max-width:1500px;max-height:500px;position:relative;z-index:2}
+.floor{position:absolute;left:120px;right:120px;bottom:-10px;height:46px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.38),rgba(0,0,0,0) 70%);display:block}
+.pills{position:absolute;left:120px;bottom:90px;display:flex;gap:20px}
+.pill{display:block;font-size:40px;color:#0E0E12;background:#FFFFFF;padding:14px 38px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+.full{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover;display:block}
+.grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.78) 100%);display:block}
+.grad2{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,.75) 100%);display:block}
+.ltxt{position:absolute;left:120px;bottom:150px;width:1450px}
+.ltit{font-size:130px;color:#fff}
+.lsub{font-size:42px;color:#E3E4E6;margin-top:10px}
+.larr{position:absolute;right:120px;bottom:170px}
+.arr{display:flex;width:96px;height:96px;border-radius:50%;background:rgba(80,80,84,.75);align-items:center;justify-content:center}
+.small{position:absolute;left:120px;right:120px;bottom:44px;font-size:21px;line-height:1.35;color:rgba(255,255,255,.78)}
+.ent{position:absolute;left:0;right:0;top:70px;text-align:center;font-size:110px;color:#fff}
+.cards{position:absolute;left:120px;top:240px;width:1680px;display:flex;gap:40px}
+.dc{position:relative;width:533px;height:640px;border-radius:44px;overflow:hidden;background:#222}
+.dc img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
+.cg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.8) 100%);display:block}
+.dc p{position:absolute;left:40px;bottom:46px;width:330px;font-size:44px;line-height:1.1;color:#fff}
+.dc .arr{position:absolute;right:34px;bottom:40px;width:84px;height:84px}
+.shop{position:absolute;left:0;right:0;bottom:70px;text-align:center;font-size:38px;color:#C9CACD}
+.end{position:absolute;left:0;right:0;bottom:120px;text-align:center}
+.endt{font-size:104px;color:#fff}
+.url{font-size:46px;color:#D6D7D9;letter-spacing:.06em;margin-top:22px}
+</style></head>
+<body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="45" data-width="1920" data-height="1080">
+      <video id="hv" class="clip vid" src="assets/video/hero.mp4" muted playsinline data-start="0" data-duration="6.0" data-playback-rate="0.6" data-track-index="9"></video>
+      <section id="s0" class="scene clip" data-start="0" data-duration="6.0" data-track-index="0" style="background:transparent">
+        <div class="sw"><div class="vzw" id="vz0"><i class="vig"></i></div></div>
+        <i class="fade" id="f0"></i>
+      </section>
+      <section id="s1" class="scene clip" data-start="6.0" data-duration="2.0" data-track-index="1" style="background:#000">
+        <div class="sw"><i class="redglow" id="rg1"></i><div class="t1"><div class="mask"><h1 id="t1a" class="F hero">Aus Liebe zum</h1></div><div class="mask"><h1 id="t1b" class="F hero">Sportwagen.</h1></div></div></div>
+        <i class="fade" id="f1"></i>
+      </section>
+      <section id="s2" class="scene clip" data-start="8.0" data-duration="2.0" data-track-index="0" style="background:#EEEFF2">
+        <div class="sw"><div class="card"></div><p class="cnt">01 / 06</p><h2 class="F mname" id="mn2">718</h2><p class="mdesc" id="md2">Präziser Sportwagen mit Mittelmotor.</p><div class="carwrap" id="cw2"><img class="car" src="assets/img/car_718.png" alt="718"/><i class="floor"></i></div><div class="pills" id="pl2"><span class="pill">Benzin</span></div></div>
+        <i class="fade" id="f2"></i>
+      </section>
+      <section id="s3" class="scene clip" data-start="10.0" data-duration="2.0" data-track-index="1" style="background:#EEEFF2">
+        <div class="sw"><div class="card"></div><p class="cnt">02 / 06</p><h2 class="F mname" id="mn3">911</h2><p class="mdesc" id="md3">Ikonischer Sportwagen mit Heckmotor.</p><div class="carwrap" id="cw3"><img class="car" src="assets/img/car_911.png" alt="911"/><i class="floor"></i></div><div class="pills" id="pl3"><span class="pill">Benzin</span></div></div>
+        <i class="fade" id="f3"></i>
+      </section>
+      <section id="s4" class="scene clip" data-start="12.0" data-duration="2.0" data-track-index="0" style="background:#EEEFF2">
+        <div class="sw"><div class="card"></div><p class="cnt">03 / 06</p><h2 class="F mname" id="mn4">Taycan</h2><p class="mdesc" id="md4">Elektrischer Sportwagen.</p><div class="carwrap" id="cw4"><img class="car" src="assets/img/car_taycan.png" alt="Taycan"/><i class="floor"></i></div><div class="pills" id="pl4"><span class="pill">Elektro</span></div></div>
+        <i class="fade" id="f4"></i>
+      </section>
+      <section id="s5" class="scene clip" data-start="14.0" data-duration="2.0" data-track-index="1" style="background:#EEEFF2">
+        <div class="sw"><div class="card"></div><p class="cnt">04 / 06</p><h2 class="F mname" id="mn5">Panamera</h2><p class="mdesc" id="md5">Luxuslimousine mit hohem Komfort.</p><div class="carwrap" id="cw5"><img class="car" src="assets/img/car_panamera.png" alt="Panamera"/><i class="floor"></i></div><div class="pills" id="pl5"><span class="pill">Hybrid</span><span class="pill">Benzin</span></div></div>
+        <i class="fade" id="f5"></i>
+      </section>
+      <section id="s6" class="scene clip" data-start="16.0" data-duration="2.0" data-track-index="0" style="background:#EEEFF2">
+        <div class="sw"><div class="card"></div><p class="cnt">05 / 06</p><h2 class="F mname" id="mn6">Macan</h2><p class="mdesc" id="md6">Sportlicher Kompakt-SUV.</p><div class="carwrap" id="cw6"><img class="car" src="assets/img/car_xab.png" alt="Macan"/><i class="floor"></i></div><div class="pills" id="pl6"><span class="pill">Elektro</span></div></div>
+        <i class="fade" id="f6"></i>
+      </section>
+      <section id="s7" class="scene clip" data-start="18.0" data-duration="2.0" data-track-index="1" style="background:#EEEFF2">
+        <div class="sw"><div class="card"></div><p class="cnt">06 / 06</p><h2 class="F mname" id="mn7">Cayenne</h2><p class="mdesc" id="md7">Vielseitiger SUV.</p><div class="carwrap" id="cw7"><img class="car" src="assets/img/car_macan.png" alt="Cayenne"/><i class="floor"></i></div><div class="pills" id="pl7"><span class="pill">Elektro</span><span class="pill">Hybrid</span><span class="pill">Benzin</span></div></div>
+        <i class="fade" id="f7"></i>
+      </section>
+      <section id="s8" class="scene clip" data-start="20.0" data-duration="3.0" data-track-index="0" style="background:#000">
+        <div class="sw"><img class="full" id="ph8" src="assets/img/p911.jpg" alt=""/><i class="grad"></i><div class="ltxt"><h2 class="F ltit" id="lt8">911.</h2><p class="lsub" id="ls8">Ikonischer Sportwagen mit Heckmotor.</p></div><div class="larr" id="la8"><span class="arr"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div></div>
+        <i class="fade" id="f8"></i>
+      </section>
+      <section id="s9" class="scene clip" data-start="23.0" data-duration="3.0" data-track-index="1" style="background:#000">
+        <div class="sw"><img class="full" id="ph9" src="assets/img/pmacan.jpg" alt=""/><i class="grad"></i><div class="ltxt"><h2 class="F ltit" id="lt9">Macan Electric.</h2><p class="lsub" id="ls9">Sportlicher Kompakt-SUV.</p></div><div class="larr" id="la9"><span class="arr"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div><p class="small">Macan: Stromverbrauch kombiniert: 19.4 – 16.8 kWh/100km, Elektrische Reichweite kombiniert (WLTP): 547 – 638 km, CO₂-Emissionen kombiniert: 0 g/km, Effizienzklasse: B - C</p></div>
+        <i class="fade" id="f9"></i>
+      </section>
+      <section id="s10" class="scene clip" data-start="26.0" data-duration="3.0" data-track-index="0" style="background:#000">
+        <div class="sw"><img class="full" id="ph10" src="assets/img/pcayenne.jpg" alt=""/><i class="grad"></i><div class="ltxt"><h2 class="F ltit" id="lt10">Cayenne Turbo Electric.</h2><p class="lsub" id="ls10">Vielseitiger SUV.</p></div><div class="larr" id="la10"><span class="arr"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div><p class="small">Cayenne Turbo Electric: Stromverbrauch kombiniert: 22.5 – 20.5 kWh/100km, Elektrische Reichweite kombiniert (WLTP): 557 – 620 km, CO₂-Emissionen kombiniert: 0 g/km, Effizienzklasse: C - D</p></div>
+        <i class="fade" id="f10"></i>
+      </section>
+      <section id="s11" class="scene clip" data-start="29.0" data-duration="3.0" data-track-index="1" style="background:#000">
+        <div class="sw"><img class="full" id="ph11" src="assets/img/pnorway.jpg" alt=""/><i class="grad"></i><div class="ltxt"><h2 class="F ltit" id="lt11">Motorsport – Events &amp; Strecken.</h2><p class="lsub" id="ls11">Ihr Porsche Abenteuer beginnt jetzt.</p></div><div class="larr" id="la11"><span class="arr"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div></div>
+        <i class="fade" id="f11"></i>
+      </section>
+      <section id="s12" class="scene clip" data-start="32.0" data-duration="6.0" data-track-index="0" style="background:#0B0B0E">
+        <div class="sw"><h2 class="F ent" id="en12">Entdecken</h2><div class="cards"><div class="dc"><img src="assets/img/pcard.jpg" alt=""/><i class="cg"></i><p>Porsche Kreditkarte aus Metall</p><span class="arr"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div><div class="dc"><img src="assets/img/pswiss.jpg" alt=""/><i class="cg"></i><p>Swiss Benefits</p><span class="arr"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div><div class="dc"><img src="assets/img/ptaycan.jpg" alt=""/><i class="cg"></i><p>E-Performance</p><span class="arr"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div></div><p class="shop" id="sh12">Fahrzeugzubehör · Bekleidung · Home &amp; Lifestyle — im Porsche Online Shop</p></div>
+        <i class="fade" id="f12"></i>
+      </section>
+      <section id="s13" class="scene clip" data-start="38.0" data-duration="7.0" data-track-index="1" style="background:#000">
+        <div class="sw"><img class="full" id="cr13" src="assets/img/pcrest.jpg" alt=""/><i class="grad2"></i><div class="end"><h2 class="F endt" id="et13">Ihr Porsche Abenteuer beginnt jetzt.</h2><p class="url" id="eu13">porsche.com/swiss</p></div></div>
+        <i class="fade" id="f13"></i>
+      </section>
+      <audio id="music" src="assets/audio/music.mp3" data-start="0" data-duration="45" data-track-index="20" data-volume="1"></audio>
+      <audio id="sfx-riser" src="assets/sfx/riser.mp3" data-start="3.85" data-media-start="0" data-duration="4.25" data-track-index="21" data-volume="0.32"></audio>
+      <audio id="sfx-drop" src="assets/sfx/impact-bass-2.mp3" data-start="8.0" data-media-start="0" data-duration="1.6" data-track-index="22" data-volume="0.42"></audio>
+      <audio id="sfx-endhit" src="assets/sfx/impact-bass-2.mp3" data-start="38.0" data-media-start="0" data-duration="1.8" data-track-index="23" data-volume="0.38"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      {const S=0;tl.fromTo("#f0",{opacity:1},{opacity:0,duration:0.8,ease:"power1.out"},S);tl.fromTo("#hv",{scale:1.0},{scale:1.08,duration:6,ease:"none"},S);}
+      {const S=6.0;tl.fromTo("#f1",{opacity:1},{opacity:0,duration:0.12,ease:"power1.out"},S);tl.fromTo("#rg1",{opacity:0,scale:.6},{opacity:1,scale:1.1,duration:2,ease:"power2.out"},S);tl.fromTo("#t1a",{y:200},{y:0,duration:.6,ease:"expo.out"},S+.1);tl.fromTo("#t1b",{y:200},{y:0,duration:.6,ease:"expo.out"},S+.35);tl.to(".t1",{scale:1.06,duration:2,ease:"none"},S);}
+      {const S=8.0;tl.fromTo("#cw2",{x:1500,skewX:-8},{x:0,skewX:0,duration:.55,ease:"expo.out"},S);tl.to("#cw2",{x:-40,duration:1.15,ease:"none"},S+.55);tl.to("#cw2",{x:-1900,skewX:8,duration:.3,ease:"power3.in"},S+1.7);tl.fromTo("#mn2",{opacity:0,x:-60},{opacity:1,x:0,duration:.45,ease:"expo.out"},S+.08);tl.fromTo("#md2",{opacity:0},{opacity:1,duration:.4},S+.3);tl.fromTo("#pl2 .pill",{opacity:0,y:20},{opacity:1,y:0,duration:.35,ease:"back.out(1.6)",stagger:.08},S+.4);}
+      {const S=10.0;tl.fromTo("#cw3",{x:1500,skewX:-8},{x:0,skewX:0,duration:.55,ease:"expo.out"},S);tl.to("#cw3",{x:-40,duration:1.15,ease:"none"},S+.55);tl.to("#cw3",{x:-1900,skewX:8,duration:.3,ease:"power3.in"},S+1.7);tl.fromTo("#mn3",{opacity:0,x:-60},{opacity:1,x:0,duration:.45,ease:"expo.out"},S+.08);tl.fromTo("#md3",{opacity:0},{opacity:1,duration:.4},S+.3);tl.fromTo("#pl3 .pill",{opacity:0,y:20},{opacity:1,y:0,duration:.35,ease:"back.out(1.6)",stagger:.08},S+.4);}
+      {const S=12.0;tl.fromTo("#cw4",{x:1500,skewX:-8},{x:0,skewX:0,duration:.55,ease:"expo.out"},S);tl.to("#cw4",{x:-40,duration:1.15,ease:"none"},S+.55);tl.to("#cw4",{x:-1900,skewX:8,duration:.3,ease:"power3.in"},S+1.7);tl.fromTo("#mn4",{opacity:0,x:-60},{opacity:1,x:0,duration:.45,ease:"expo.out"},S+.08);tl.fromTo("#md4",{opacity:0},{opacity:1,duration:.4},S+.3);tl.fromTo("#pl4 .pill",{opacity:0,y:20},{opacity:1,y:0,duration:.35,ease:"back.out(1.6)",stagger:.08},S+.4);}
+      {const S=14.0;tl.fromTo("#cw5",{x:1500,skewX:-8},{x:0,skewX:0,duration:.55,ease:"expo.out"},S);tl.to("#cw5",{x:-40,duration:1.15,ease:"none"},S+.55);tl.to("#cw5",{x:-1900,skewX:8,duration:.3,ease:"power3.in"},S+1.7);tl.fromTo("#mn5",{opacity:0,x:-60},{opacity:1,x:0,duration:.45,ease:"expo.out"},S+.08);tl.fromTo("#md5",{opacity:0},{opacity:1,duration:.4},S+.3);tl.fromTo("#pl5 .pill",{opacity:0,y:20},{opacity:1,y:0,duration:.35,ease:"back.out(1.6)",stagger:.08},S+.4);}
+      {const S=16.0;tl.fromTo("#cw6",{x:1500,skewX:-8},{x:0,skewX:0,duration:.55,ease:"expo.out"},S);tl.to("#cw6",{x:-40,duration:1.15,ease:"none"},S+.55);tl.to("#cw6",{x:-1900,skewX:8,duration:.3,ease:"power3.in"},S+1.7);tl.fromTo("#mn6",{opacity:0,x:-60},{opacity:1,x:0,duration:.45,ease:"expo.out"},S+.08);tl.fromTo("#md6",{opacity:0},{opacity:1,duration:.4},S+.3);tl.fromTo("#pl6 .pill",{opacity:0,y:20},{opacity:1,y:0,duration:.35,ease:"back.out(1.6)",stagger:.08},S+.4);}
+      {const S=18.0;tl.fromTo("#cw7",{x:1500,skewX:-8},{x:0,skewX:0,duration:.55,ease:"expo.out"},S);tl.to("#cw7",{x:-40,duration:1.15,ease:"none"},S+.55);tl.to("#cw7",{x:-1900,skewX:8,duration:.3,ease:"power3.in"},S+1.7);tl.fromTo("#mn7",{opacity:0,x:-60},{opacity:1,x:0,duration:.45,ease:"expo.out"},S+.08);tl.fromTo("#md7",{opacity:0},{opacity:1,duration:.4},S+.3);tl.fromTo("#pl7 .pill",{opacity:0,y:20},{opacity:1,y:0,duration:.35,ease:"back.out(1.6)",stagger:.08},S+.4);}
+      {const S=20.0;tl.fromTo("#f8",{opacity:1},{opacity:0,duration:0.12,ease:"power1.out"},S);tl.fromTo("#ph8",{scale:1.14,x:-40,y:0},{scale:1.0,x:0,y:0,duration:3,ease:"none"},S);tl.fromTo("#lt8",{opacity:0,y:50},{opacity:1,y:0,duration:.55,ease:"expo.out"},S+.15);tl.fromTo("#ls8",{opacity:0},{opacity:1,duration:.5},S+.5);tl.fromTo("#la8",{opacity:0,scale:.5},{opacity:1,scale:1,duration:.4,ease:"back.out(2)"},S+.6);}
+      {const S=23.0;tl.fromTo("#ph9",{scale:1.0,x:0,y:-30},{scale:1.12,x:0,y:0,duration:3,ease:"none"},S);tl.fromTo("#lt9",{opacity:0,y:50},{opacity:1,y:0,duration:.55,ease:"expo.out"},S+.15);tl.fromTo("#ls9",{opacity:0},{opacity:1,duration:.5},S+.5);tl.fromTo("#la9",{opacity:0,scale:.5},{opacity:1,scale:1,duration:.4,ease:"back.out(2)"},S+.6);}
+      {const S=26.0;tl.fromTo("#ph10",{scale:1.12,x:40,y:0},{scale:1.0,x:0,y:0,duration:3,ease:"none"},S);tl.fromTo("#lt10",{opacity:0,y:50},{opacity:1,y:0,duration:.55,ease:"expo.out"},S+.15);tl.fromTo("#ls10",{opacity:0},{opacity:1,duration:.5},S+.5);tl.fromTo("#la10",{opacity:0,scale:.5},{opacity:1,scale:1,duration:.4,ease:"back.out(2)"},S+.6);}
+      {const S=29.0;tl.fromTo("#ph11",{scale:1.0,x:0,y:0},{scale:1.1,x:0,y:0,duration:3,ease:"none"},S);tl.fromTo("#lt11",{opacity:0,y:50},{opacity:1,y:0,duration:.55,ease:"expo.out"},S+.15);tl.fromTo("#ls11",{opacity:0},{opacity:1,duration:.5},S+.5);tl.fromTo("#la11",{opacity:0,scale:.5},{opacity:1,scale:1,duration:.4,ease:"back.out(2)"},S+.6);}
+      {const S=32.0;tl.fromTo("#f12",{opacity:1},{opacity:0,duration:0.12,ease:"power1.out"},S);tl.fromTo("#en12",{opacity:0,y:30},{opacity:1,y:0,duration:.6,ease:"expo.out"},S+.1);tl.fromTo("#s12 .dc",{opacity:0,y:240},{opacity:1,y:0,duration:.7,ease:"expo.out",stagger:.25},S+.3);tl.fromTo("#s12 .dc img",{scale:1.15},{scale:1.0,duration:5.5,ease:"none"},S+.3);tl.fromTo("#sh12",{opacity:0},{opacity:1,duration:.6},S+2.4);}
+      {const S=38.0;tl.fromTo("#f13",{opacity:1},{opacity:0,duration:0.12,ease:"power1.out"},S);tl.fromTo("#cr13",{scale:1.18},{scale:1.0,duration:7,ease:"power1.out"},S);tl.fromTo("#et13",{opacity:0,y:40},{opacity:1,y:0,duration:.9,ease:"expo.out"},S+1.0);tl.fromTo("#eu13",{opacity:0},{opacity:1,duration:.8},S+1.8);tl.fromTo("#f13",{opacity:0},{opacity:1,duration:1.4,ease:"power1.in",immediateRender:false},S+7.0-1.4);}
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+</body></html>

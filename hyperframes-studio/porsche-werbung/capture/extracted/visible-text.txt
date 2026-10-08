@@ -1,0 +1,43 @@
+[p-display] Aus Liebe zum Sportwagen.
+[p-link] Mehr entdecken
+[p-text] GT3 Bergsport.
+[p-text] Macan Electric.
+[p-text] Cayenne Turbo Electric.
+[p-text] Macan: Stromverbrauch kombiniert: 19.4 – 16.8 kWh/100km, Elektrische Reichweite kombiniert (WLTP): 547 – 638 km, CO₂-Emissionen kombiniert: 0 g/km, Effizienzklasse: B - C | Cayenne Turbo Electric: Stromverbrauch kombiniert: 22.5 – 20.5 kWh/100km, Elektrische Reichweite kombiniert (WLTP): 557 – 620 km, CO₂-Emissionen kombiniert: 0 g/km, Effizienzklasse: C - D
+[span] Ihr Porsche Abenteuer beginnt jetzt.
+[p-text] Benzin
+[p-text] Ikonischer Sportwagen mit Heckmotor: 2 Türen, 2+2 Sitze.
+[p-link-pure] Entdecken Sie den 911
+[p-text] Modell aktuell nicht bestellbar. Verfügbare Fahrzeuge entdecken.
+[p-text] Präziser Sportwagen mit Mittelmotor: 2 Türen, 2 Sitze.
+[p-link-pure] Entdecken Sie den 718
+[p-text] Elektro
+[p-text] Elektrischer Sportwagen: 4 Türen, 4/5 Sitze.
+[p-link-pure] Entdecken Sie den Taycan
+[p-text] Hybrid
+[p-text] Benzin
+[p-text] Luxuslimousine mit hohem Komfort: 4 Türen, 4/5 Sitze.
+[p-link-pure] Entdecken Sie den Panamera
+[p-text] Elektro
+[p-text] Sportlicher Kompakt-SUV: 4 Türen, 5 Sitze.
+[p-link-pure] Entdecken Sie den Macan
+[p-text] Elektro
+[p-text] Hybrid
+[p-text] Benzin
+[p-text] Vielseitiger SUV: 4 Türen, bis zu 5 Sitze.
+[p-link-pure] Entdecken Sie den Cayenne
+[p-heading] Swiss Benefits
+[p-text] Exklusiv in der Schweiz - exklusiv für Sie. Freuen Sie sich beim Kauf eines Neuwagens in einem Schweizer Porsche Zentrum auf besondere Vorteile. Für detaillierte Informationen steht Ihnen Ihr Porsche Zentrum gerne zur Verfügung.
+[p-link] Zu den Vorteilen
+[p-heading] Finden Sie Ihren Porsche Neu- oder Gebrauchtwagen.
+[p-text] So finden Sie ganz einfach Ihren Traum Porsche. Geben Sie Ihren Standort ein und stöbern Sie in den besten Fahrzeugangeboten in Ihrer Nähe.
+[p-heading] Entdecken Sie exklusive Porsche Produkte
+[p-text] Chronograph 1 Utility – Limited Edition for Hodinkee
+[p-link-pure] Zum Online Shop
+[p-text] Fahrzeugzubehör
+[p-text] Bekleidung
+[p-text] Home & Lifestyle
+[p-heading] Entdecken
+[p-text] Porsche Kreditkarte aus Metall
+[p-text] E-Performance
+[p-text] Motorsport – Events & Strecken

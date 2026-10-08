@@ -1,0 +1,101 @@
+{
+  "typography": [
+    {
+      "role": "label",
+      "fontFamily": "Porsche Next",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "#000000",
+      "sampleText": "Aus Liebe zum Sportwagen.Mehr entdeckenGT3 Bergsport.Macan E"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      8,
+      16,
+      30,
+      36,
+      76,
+      96
+    ],
+    "baseUnit": 4
+  },
+  "radius": [],
+  "shadows": [],
+  "buttons": [
+    {
+      "label": "Mehr entdecken",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "36px 0px 0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "56px"
+    },
+    {
+      "label": "Mehr entdecken",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "12px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "56px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px 0px 75.8px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "1560.34px"
+    }
+  ],
+  "nav": null,
+  "chips": [
+    {
+      "label": "Mehr entdecken",
+      "background": "transparent",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "12px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "56px"
+    }
+  ],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [
+    {
+      "value": "linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.8) 8.1%, rgba(0, 0, 0, 0.8) 15.5%, rgba(0, 0, 0, 0.8) 22.5%, rgba(0, 0, 0, 0.78) 29%, rgba(0, 0, 0, 0.73) 35.3%, rgba(0, 0, 0, 0.67) 41.2%, rgba(0, 0, 0, 0.6) 47.1%, rgba(0, 0, 0, 0.52) 52.9%, rgba(0, 0, 0, 0.44) 58.8%, rgba(0, 0, 0, 0.33) 64.7%, rgba(0, 0, 0, 0.22) 71%, rgba(0, 0, 0, 0.12) 77.5%, rgba(0, 0, 0, 0.05) 84.5%, rgba(0, 0, 0, 0.01) 91.9%, rgba(0, 0, 0, 0))",
+      "area": 4759979
+    },
+    {
+      "value": "linear-gradient(rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.8) 8.1%, rgba(0, 0, 0, 0.8) 15.5%, rgba(0, 0, 0, 0.8) 22.5%, rgba(0, 0, 0, 0.78) 29%, rgba(0, 0, 0, 0.73) 35.3%, rgba(0, 0, 0, 0.67) 41.2%, rgba(0, 0, 0, 0.6) 47.1%, rgba(0, 0, 0, 0.52) 52.9%, rgba(0, 0, 0, 0.44) 58.8%, rgba(0, 0, 0, 0.33) 64.7%, rgba(0, 0, 0, 0.22) 71%, rgba(0, 0, 0, 0.12) 77.5%, rgba(0, 0, 0, 0.05) 84.5%, rgba(0, 0, 0, 0.01) 91.9%, rgba(0, 0, 0, 0))",
+      "area": 739039
+    }
+  ],
+  "glass": []
+}
