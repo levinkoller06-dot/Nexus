@@ -31,3 +31,7 @@ angepasst werden.
 
 Die deutsche Stimme stammt aus Piper (`pip install piper-tts`), Stimme
 `de_DE-thorsten-high` von huggingface.co/rhasspy/piper-voices.
+
+## iPhone-20-Konzept
+- `iphone_phone3d.py`: das 3D-iPhone aus CSS-3D-Ebenen, drehbar, in fünf Farben (Mitternacht, Polarweiss, Gletscherblau, Sandstein, Salbei)
+- `gen_iphone.py`: die 16 Szenen des iPhone-20-Konzeptvideos, auf die Takte des Songs gelegt (119 BPM)
